@@ -1,0 +1,134 @@
+{
+  "input": {
+    "workflow": {
+      "5": {
+        "inputs": {
+          "value": 512
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+          "title": "EmptyLatentImage"
+        }
+      },
+      "6": {
+        "inputs": {
+          "text": "Ultra-psychedelic surreal landscape of Colombian nature, lush tropical trees morphing into fractal shapes, rolling hills flowing like liquid waves, a traditional Colombian town in the background with colorful houses bending and melting softly, vibrant neon colors, iridescent textures, kaleidoscopic patterns in the sky, deep blue sky transforming into cosmic spirals, radiant sun emitting rainbow light rays, bioluminescent plants, dreamlike atmosphere, hyper-detailed, ultra high resolution, cinematic lighting, mystical, ethereal, visionary art, inspired by psychedelic art, surrealism, and fantasy realism.",
+          "clip": [
+            "20",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "7": {
+        "inputs": {
+          "text": "score_4, score_3, score_2, text, watermark, bad detailes, ugly results",
+          "clip": [
+            "20",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "8": {
+        "inputs": {
+          "samples": [
+            "13",
+            0
+          ],
+          "vae": [
+            "20",
+            2
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "13": {
+        "inputs": {
+          "value": true,
+          "model": [
+            "20",
+            0
+          ],
+          "positive": [
+            "6",
+            0
+          ],
+          "negative": [
+            "7",
+            0
+          ],
+          "sampler": [
+            "14",
+            0
+          ],
+          "sigmas": [
+            "22",
+            0
+          ],
+          "latent_image": [
+            "5",
+            0
+          ]
+        },
+        "class_type": "SamplerCustom",
+        "_meta": {
+          "title": "SamplerCustom"
+        }
+      },
+      "14": {
+        "inputs": {
+          "text": "euler_ancestral"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "KSamplerSelect"
+        }
+      },
+      "20": {
+        "inputs": {
+          "ckpt_name": "sd_xl_turbo_1.0_fp16.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "CheckpointLoaderSimple"
+        }
+      },
+      "22": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "20",
+            0
+          ]
+        },
+        "class_type": "SDTurboScheduler",
+        "_meta": {
+          "title": "SDTurboScheduler"
+        }
+      },
+      "27": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      }
+    }
+  }
+}
